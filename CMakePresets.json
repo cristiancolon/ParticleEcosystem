@@ -1,0 +1,27 @@
+{
+	"version": 5,
+	"configurePresets": [
+		{
+			"name": "windows-msvc-vcpkg",
+			"displayName": "MSVC + vcpkg toolchain (x64)",
+			"generator": "Visual Studio 17 2022",
+			"binaryDir": "${sourceDir}/build",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "C:/Users/cicol/Desktop/ML_Projects/vcpkg/scripts/buildsystems/vcpkg.cmake",
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "windows-debug",
+			"configurePreset": "windows-msvc-vcpkg",
+			"configuration": "Debug"
+		},
+		{
+			"name": "windows-release",
+			"configurePreset": "windows-msvc-vcpkg",
+			"configuration": "Release"
+		}
+	]
+}
