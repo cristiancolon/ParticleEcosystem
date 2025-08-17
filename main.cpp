@@ -47,7 +47,7 @@ GPUParticle createRandomParticle(std::mt19937& rng, const GLFWvidmode* videoMode
     std::uniform_real_distribution<float> ydist(0.0f, (float)videoMode->height);
     std::uniform_int_distribution<size_t> colorVal(0, NUM_SPECIES - 1);
     
-    const float radius = 1.0f;
+    const float radius = 2.0f;
     const float mass = calculateMass(radius);
     const auto color = colorMap.at(static_cast<ColorSpecies>(colorVal(rng)));
     
@@ -140,7 +140,7 @@ int main() {
 
 	glClearColor(0.04f, 0.05f, 0.1f, 1.0f);
 
-	constexpr int numPoints = 40000;
+	constexpr int numPoints = 30000;
 	
     // Create state and set up callbacks
     SimulationState simState;

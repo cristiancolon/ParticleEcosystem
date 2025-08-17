@@ -327,7 +327,7 @@
 		// uniforms
 		glUniform1i(glGetUniformLocation(computeProgram, "uCount"), (GLint)particleCount);
 		glUniform1f(glGetUniformLocation(computeProgram, "uMaxDist"), 200.0f);
-		glUniform1f(glGetUniformLocation(computeProgram, "uRepelDist"), 30.0f);
+		glUniform1f(glGetUniformLocation(computeProgram, "uRepelDist"), 60.0f);
 		glUniform1f(glGetUniformLocation(computeProgram, "uDt"), deltaTime);
 		glUniform1f(glGetUniformLocation(computeProgram, "uDamping"), 0.08f);
 		glUniform1f(glGetUniformLocation(computeProgram, "uForceScale"), 0.3f);
