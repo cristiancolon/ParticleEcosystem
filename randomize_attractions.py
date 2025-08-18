@@ -11,6 +11,30 @@ def generate_random_matrix(num_values, low=1, high=5):
         values.append(rounded_val)
     return values
 
+def write_attraction_matrix_to_file(filename="attraction_matrix.txt"):
+    # Color species in order (matching the enum in Color.h)
+    species = ['RED', 'GREEN', 'BLUE', 'YELLOW', 'CYAN', 'MAGENTA', 'PURPLE', 'ORANGE']
+    
+    # Generate 64 random values (8x8 matrix)
+    values = generate_random_matrix(64)
+    
+    # Write to file in a simple format: from_species to_species attraction_value
+    with open(filename, 'w') as f:
+        f.write("# Attraction matrix data\n")
+        f.write("# Format: from_species to_species attraction_value\n")
+        f.write(f"# Species order: {' '.join(species)}\n")
+        f.write("\n")
+        
+        value_index = 0
+        for i, species1 in enumerate(species):
+            for j, species2 in enumerate(species):
+                value = values[value_index]
+                f.write(f"{i} {j} {value}\n")
+                value_index += 1
+    
+    print(f"Attraction matrix written to {filename}")
+    return filename
+
 def generate_attraction_matrix_string():
     # Color species in order
     species = ['RED', 'GREEN', 'BLUE', 'YELLOW', 'CYAN', 'MAGENTA', 'PURPLE', 'ORANGE']
@@ -37,4 +61,6 @@ def generate_attraction_matrix_string():
     return matrix_string
 
 if __name__ == "__main__":
-    print(generate_attraction_matrix_string())
+    # Write to file instead of printing C++ code
+    write_attraction_matrix_to_file()
+    print("Run the C++ program to use the generated attraction matrix.")

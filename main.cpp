@@ -47,7 +47,7 @@ GPUParticle createRandomParticle(std::mt19937& rng, const GLFWvidmode* videoMode
     std::uniform_real_distribution<float> ydist(0.0f, (float)videoMode->height);
     std::uniform_int_distribution<size_t> colorVal(0, NUM_SPECIES - 1);
     
-    const float radius = 2.0f;
+    const float radius = 1.0f;
     const float mass = calculateMass(radius);
     const auto color = colorMap.at(static_cast<ColorSpecies>(colorVal(rng)));
     
@@ -98,6 +98,11 @@ void resetSimulation(
 
 
 int main() {
+	// Load attraction matrix from file
+	if (!loadAttractionMatrixFromFile()) {
+		std::cout << "Using default attraction matrix." << std::endl;
+	}
+	
 	if (!glfwInit()) {
 		std::cout << "Failed to initialize GLFW" << std::endl;
 		return -1;

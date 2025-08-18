@@ -13,6 +13,7 @@ find_package(glad CONFIG REQUIRED)
 add_executable(ParticleSim
 	main.cpp
 	Renderer.cpp
+	Color.cpp
 	GPUParticle.h
 )
 
